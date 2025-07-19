@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = targetSection.offsetTop - 100; // Account for fixed navbar
                 
                 window.scrollTo({
                     top: offsetTop,

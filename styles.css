@@ -370,6 +370,17 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Ensure sections are properly spaced */
+section {
+    padding-top: 80px;
+    margin-top: -80px;
+}
+
+/* Fix for sections with background colors */
+section.bg-light {
+    background-color: #f8f9fa !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
