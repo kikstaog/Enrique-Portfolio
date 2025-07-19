@@ -135,6 +135,7 @@ body {
 .timeline {
     position: relative;
     padding-left: 2rem;
+    margin-top: 2rem;
 }
 
 .timeline::before {
@@ -144,62 +145,52 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .timeline-item {
     position: relative;
     margin-bottom: 2rem;
     padding-left: 2rem;
-    opacity: 1;
-    visibility: visible;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 1rem;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
     left: -0.5rem;
-    top: 0.5rem;
+    top: 1rem;
     width: 1rem;
     height: 1rem;
-    background: var(--primary-color);
+    background: #667eea;
     border-radius: 50%;
     border: 3px solid white;
-    box-shadow: var(--shadow);
-}
-
-.timeline-content {
-    background: white !important;
-    padding: 1.5rem !important;
-    border-radius: 10px !important;
-    box-shadow: var(--shadow) !important;
-    transition: transform 0.3s ease;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 1rem;
-    color: #333 !important;
-}
-
-.timeline-content:hover {
-    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-content h4 {
-    color: var(--primary-color) !important;
-    margin-bottom: 0.5rem !important;
-    font-weight: bold !important;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .timeline-content h5 {
-    color: var(--secondary-color) !important;
-    font-size: 0.9rem !important;
-    margin-bottom: 1rem !important;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .timeline-content p {
-    color: #333 !important;
-    margin-bottom: 0.5rem !important;
-    line-height: 1.6 !important;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 /* Project Cards */
@@ -207,18 +198,19 @@ body {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     height: 100%;
+    margin-bottom: 2rem;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 2rem;
     text-align: center;
     color: white;
@@ -229,8 +221,14 @@ body {
 }
 
 .project-content h4 {
-    color: var(--dark-color);
+    color: #333;
     margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.project-content p {
+    color: #6c757d;
+    margin-bottom: 1rem;
 }
 
 .tech-stack {
@@ -240,6 +238,7 @@ body {
 .tech-stack .badge {
     margin: 0.2rem;
     font-size: 0.8rem;
+    background: #667eea;
 }
 
 .project-links {
@@ -256,12 +255,13 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 100%;
+    margin-bottom: 2rem;
 }
 
 .skill-category h4 {
-    color: var(--dark-color);
+    color: #333;
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -274,7 +274,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: var(--dark-color);
+    color: #333;
 }
 
 .progress {
@@ -285,7 +285,7 @@ body {
 }
 
 .progress-bar {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 4px;
     transition: width 1s ease;
 }
@@ -294,6 +294,10 @@ body {
 .contact-item {
     padding: 1rem;
     transition: transform 0.3s ease;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
 }
 
 .contact-item:hover {
@@ -301,13 +305,15 @@ body {
 }
 
 .contact-item h5 {
-    color: var(--dark-color);
+    color: #333;
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .contact-item p {
-    color: var(--secondary-color);
+    color: #6c757d;
     margin-bottom: 0;
+    font-size: 1rem;
 }
 
 /* Animations */
@@ -393,11 +399,17 @@ section.bg-light {
     background-color: #f8f9fa !important;
 }
 
-/* Ensure all content is visible */
+/* Force visibility of all content */
 .timeline, .project-card, .skill-category, .contact-item {
+    display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+.timeline-item, .timeline-content {
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* Custom Scrollbar */
