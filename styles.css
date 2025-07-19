@@ -169,14 +169,15 @@ body {
 }
 
 .timeline-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
+    background: white !important;
+    padding: 1.5rem !important;
+    border-radius: 10px !important;
+    box-shadow: var(--shadow) !important;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
     margin-bottom: 1rem;
+    color: #333 !important;
 }
 
 .timeline-content:hover {
@@ -184,14 +185,21 @@ body {
 }
 
 .timeline-content h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    color: var(--primary-color) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: bold !important;
 }
 
 .timeline-content h5 {
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    color: var(--secondary-color) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.timeline-content p {
+    color: #333 !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.6 !important;
 }
 
 /* Project Cards */
@@ -378,18 +386,18 @@ html {
 /* Ensure sections are properly spaced */
 section {
     padding-top: 100px;
-    margin-top: -100px;
-}
-
-/* Special handling for timeline content */
-.timeline-content {
-    position: relative;
-    z-index: 1;
 }
 
 /* Fix for sections with background colors */
 section.bg-light {
     background-color: #f8f9fa !important;
+}
+
+/* Ensure all content is visible */
+.timeline, .project-card, .skill-category, .contact-item {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 /* Custom Scrollbar */
