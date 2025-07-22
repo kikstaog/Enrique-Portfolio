@@ -519,3 +519,25 @@ section.bg-light {
         padding: 2rem 0;
     }
 } 
+
+.project-purple {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 4px 20px rgba(118, 75, 162, 0.15);
+}
+
+.project-lavender {
+    background: linear-gradient(135deg, #b993d6 0%, #8ca6db 100%);
+    box-shadow: 0 4px 20px rgba(185, 147, 214, 0.12);
+}
+
+.project-glass {
+    background: rgba(120, 90, 180, 0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(120, 90, 180, 0.15);
+    box-shadow: 0 4px 20px rgba(120, 90, 180, 0.10);
+}
+
+.project-darkpurple {
+    background: linear-gradient(135deg, #4e206e 0%, #764ba2 100%);
+    box-shadow: 0 4px 20px rgba(78, 32, 110, 0.18);
+} 
