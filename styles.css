@@ -541,3 +541,24 @@ section.bg-light {
     background: linear-gradient(135deg, #4e206e 0%, #764ba2 100%);
     box-shadow: 0 4px 20px rgba(78, 32, 110, 0.18);
 } 
+
+.project-pastel-purple {
+    background: #b39ddb;
+    box-shadow: 0 4px 20px rgba(179, 157, 219, 0.15);
+}
+
+.project-pastel-green {
+    background: #a5d6a7;
+    box-shadow: 0 4px 20px rgba(165, 214, 167, 0.12);
+}
+
+.project-pastel-blue {
+    background: #90caf9;
+    box-shadow: 0 4px 20px rgba(144, 202, 249, 0.12);
+}
+
+.project-pastel-yellow {
+    background: #fff9c4;
+    box-shadow: 0 4px 20px rgba(255, 249, 196, 0.12);
+    color: #333 !important;
+} 
