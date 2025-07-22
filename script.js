@@ -20,6 +20,16 @@ function switchLanguage(lang) {
         toggleBtn.innerHTML = `<i class="fas fa-globe"></i> ${lang.toUpperCase() === 'EN' ? 'ES' : 'EN'}`;
     }
     
+    // Update CV download link based on language
+    const cvDownloadLink = document.getElementById('cvDownloadLink');
+    if (cvDownloadLink) {
+        if (lang === 'es') {
+            cvDownloadLink.href = 'CV_Enrique_De_Santiago_Espanol.html';
+        } else {
+            cvDownloadLink.href = 'CV_Enrique_De_Santiago.html';
+        }
+    }
+    
     // Update HTML lang attribute
     document.documentElement.lang = lang;
 }
