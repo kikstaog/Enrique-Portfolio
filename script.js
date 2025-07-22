@@ -251,13 +251,32 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.add('reveal');
     });
 
+    // Handle profile image fallback
+    const profileImage = document.getElementById('profileImage');
+    const fallbackIcon = document.getElementById('fallbackIcon');
+    
+    if (profileImage) {
+        profileImage.addEventListener('error', function() {
+            this.style.display = 'none';
+            if (fallbackIcon) {
+                fallbackIcon.style.display = 'block';
+            }
+        });
+        
+        profileImage.addEventListener('load', function() {
+            if (fallbackIcon) {
+                fallbackIcon.style.display = 'none';
+            }
+        });
+    }
+
     // Console welcome message
     console.log(`
     🚀 Welcome to my portfolio!
     
     👨‍💻 Software Developer & Business Leader
-    📧 Contact: your.email@example.com
-    🔗 GitHub: github.com/yourusername
+    📧 Contact: ef.santiago@gmail.com
+    🔗 GitHub: github.com/kikstaog
     
     Built with ❤️ using HTML, CSS, and JavaScript
     `);

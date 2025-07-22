@@ -93,6 +93,33 @@ body {
     animation: float 6s ease-in-out infinite;
 }
 
+.profile-image-container {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.fallback-icon {
+    display: none;
+}
+
+.profile-image[style*="display: none"] + .fallback-icon {
+    display: block;
+}
+
 /* Section Titles */
 .section-title {
     font-size: 2.5rem;
