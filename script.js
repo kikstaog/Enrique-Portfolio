@@ -1,6 +1,42 @@
 // Portfolio Website JavaScript
 
+// Language switching functionality
+let currentLanguage = localStorage.getItem('language') || 'en';
+
+// Function to switch language
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    
+    // Update all elements with data attributes
+    const elements = document.querySelectorAll('[data-en][data-es]');
+    elements.forEach(element => {
+        element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    
+    // Update language toggle button
+    const toggleBtn = document.getElementById('languageToggle');
+    if (toggleBtn) {
+        toggleBtn.innerHTML = `<i class="fas fa-globe"></i> ${lang.toUpperCase() === 'EN' ? 'ES' : 'EN'}`;
+    }
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+}
+
+// Initialize language on page load
 document.addEventListener('DOMContentLoaded', function() {
+    // Set initial language
+    switchLanguage(currentLanguage);
+    
+    // Add click event to language toggle
+    const toggleBtn = document.getElementById('languageToggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            const newLang = currentLanguage === 'en' ? 'es' : 'en';
+            switchLanguage(newLang);
+        });
+    }
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
