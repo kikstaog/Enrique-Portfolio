@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrique De Santiago - Software Developer & Business Leader</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        },
+                        accent: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                        'display': ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .skill-ring {
+            transform: rotate(-90deg);
+        }
+        
+        .skill-ring circle {
+            transition: stroke-dasharray 1s ease-in-out;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: #0ea5e9;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateX(-8px);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#home" class="text-2xl font-bold text-white">
+                    Enrique De Santiago
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">About</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors duration-300 font-medium relative">Contact</a>
+                    <button id="languageToggle" class="bg-white/10 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-all duration-300">
+                        <i class="fas fa-globe mr-2"></i>EN/ES
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-white" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobileMenu">
+            <div class="px-4 py-6 space-y-4 glass">
+                <a href="#home" class="block text-white hover:text-primary-300 transition-colors duration-300">Home</a>
+                <a href="#about" class="block text-white hover:text-primary-300 transition-colors duration-300">About</a>
+                <a href="#experience" class="block text-white hover:text-primary-300 transition-colors duration-300">Experience</a>
+                <a href="#projects" class="block text-white hover:text-primary-300 transition-colors duration-300">Projects</a>
+                <a href="#skills" class="block text-white hover:text-primary-300 transition-colors duration-300">Skills</a>
+                <a href="#contact" class="block text-white hover:text-primary-300 transition-colors duration-300">Contact</a>
+                <button id="languageToggleMobile" class="w-full bg-white/10 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-all duration-300">
+                    <i class="fas fa-globe mr-2"></i>EN/ES
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-white rounded-full animate-float"></div>
+            <div class="absolute top-40 right-32 w-24 h-24 bg-white rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-32 left-1/3 w-16 h-16 bg-white rounded-full animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-white space-y-8 animate-fade-in-up">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                            Software Developer & 
+                            <span class="gradient-text">Business Leader</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                            13+ years of business operations experience combined with modern software development skills. 
+                            Successfully expanded a restaurant group to $2.5M annual sales while developing innovative technology solutions.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#projects" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full bg-white text-primary-600 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                            <i class="fas fa-code mr-3"></i>
+                            View Projects
+                        </a>
+                        <a href="#contact" class="btn-secondary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full border-2 border-white text-white hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-envelope mr-3"></i>
+                            Contact Me
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">13+</div>
+                            <div class="text-gray-300 text-sm">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">$2.5M</div>
+                            <div class="text-gray-300 text-sm">Annual Sales</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">4</div>
+                            <div class="text-gray-300 text-sm">Major Projects</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative animate-float">
+                        <div class="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
+                            <img src="images/kiks.jpg" alt="Enrique De Santiago" class="w-full h-full object-cover object-center" id="profileImage" onerror="this.style.display='none'">
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-500 to-secondary-500" id="fallbackIcon" style="display: none;">
+                                <i class="fas fa-laptop-code text-8xl text-white opacity-75"></i>
+                            </div>
+                        </div>
+                        <!-- Floating elements around the image -->
+                        <div class="absolute -top-4 -right-4 w-16 h-16 bg-accent-400 rounded-full animate-bounce-slow"></div>
+                        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-secondary-400 rounded-full animate-bounce-slow" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 gradient-text">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- About Content -->
+                <div class="space-y-6 animate-on-scroll">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Business Leader Turned Developer</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        I'm a results-driven professional with a unique combination of business operations expertise and modern software development skills.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        After successfully expanding a single juice bar into a 4-concept restaurant group generating $2.5 million in annual sales, 
+                        I learned programming to solve real business problems and developed three production-ready applications.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Currently working as a Realtor Agent at Wallis & Co. while pursuing Harvard CS50 to strengthen my computer science fundamentals.
+                    </p>
+                    
+                    <!-- Skills highlights -->
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div class="text-center p-4 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl">
+                            <div class="text-2xl font-bold text-primary-600">13+</div>
+                            <div class="text-sm text-gray-600">Years Experience</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-2xl">
+                            <div class="text-2xl font-bold text-secondary-600">$2.5M</div>
+                            <div class="text-sm text-gray-600">Annual Sales</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl">
+                            <div class="text-2xl font-bold text-accent-600">4</div>
+                            <div class="text-sm text-gray-600">Major Projects</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Card -->
+                <div class="animate-on-scroll">
+                    <div class="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                            <i class="fas fa-graduation-cap text-primary-500 mr-3"></i>
+                            Education & Certifications
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-university text-primary-500 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-800">Harvard CS50</div>
+                                    <div class="text-sm text-gray-600">Currently Enrolled (Week 6)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-university text-primary-500 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-800">Marymount College</div>
+                                    <div class="text-sm text-gray-600">Bachelor of Arts and Science (2009-2010)</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-university text-primary-500 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-800">Fordham University</div>
+                                    <div class="text-sm text-gray-600">2003-2005</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-certificate text-primary-500 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold text-gray-800">Licensed Realtor</div>
+                                    <div class="text-sm text-gray-600">Wallis & Co.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 gradient-text">Professional Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Timeline items -->
+                    <div class="timeline-item relative pl-8 pb-8 border-l-2 border-primary-200 animate-on-scroll">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <h4 class="text-xl font-bold text-primary-600 mb-2">Realtor Agent</h4>
+                            <h5 class="text-lg text-gray-600 mb-3">Wallis & Co. | 2024 - Present</h5>
+                            <p class="text-gray-700 leading-relaxed">
+                                Licensed real estate professional specializing in residential and commercial properties. 
+                                Represent buyers and sellers, conduct market analysis, and develop marketing strategies.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item relative pl-8 pb-8 border-l-2 border-primary-200 animate-on-scroll">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <h4 class="text-xl font-bold text-primary-600 mb-2">Full-Stack Developer & Data Analyst</h4>
+                            <h5 class="text-lg text-gray-600 mb-3">Freelance | 2024 - Present</h5>
+                            <p class="text-gray-700 leading-relaxed">
+                                Developed three production-ready applications: WhatsApp Bot, E-commerce Website, and Business Intelligence System. 
+                                Applied machine learning and automation to solve real business problems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item relative pl-8 pb-8 border-l-2 border-primary-200 animate-on-scroll">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <h4 class="text-xl font-bold text-primary-600 mb-2">Operations Manager & Product Development</h4>
+                            <h5 class="text-lg text-gray-600 mb-3">Restaurant Group: Pizza Caracas, Prana Juice Bar, Arepa CCS, Elvira | 2011 - Present</h5>
+                            <p class="text-gray-700 leading-relaxed">
+                                Successfully expanded single juice bar into 4-concept restaurant group generating $2.5M annual sales. 
+                                Focused on daily operations of two Prana Juice Bar locations and product development for all brands. 
+                                Served on the directors board for the group. Managed 25+ employees, implemented operational procedures improving efficiency by 40%.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item relative pl-8 pb-8 border-l-2 border-primary-200 animate-on-scroll">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <h4 class="text-xl font-bold text-primary-600 mb-2">Real Estate Professional</h4>
+                            <h5 class="text-lg text-gray-600 mb-3">Independent | 2011 - 2024</h5>
+                            <p class="text-gray-700 leading-relaxed">
+                                Managed residential and commercial property portfolios, handled acquisitions, 
+                                leasing, and tenant relations. Developed investment strategies and market analysis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 gradient-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- WhatsApp Bot Project -->
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll">
+                    <div class="bg-gradient-to-br from-purple-400 to-purple-600 p-8 text-center text-white">
+                        <i class="fab fa-whatsapp text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">Prana WhatsApp Bot</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Custom WhatsApp bot built from scratch with 680 lines of Python code</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Python</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Flask</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Twilio API</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">OCR</span>
+                        </div>
+                        <p class="text-gray-700 mb-4"><strong>Features:</strong> Menu management, order processing, health recommendations, multi-language support</p>
+                        <a href="https://github.com/kikstaog/prana-whatsapp-bot" target="_blank" class="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- E-commerce Website Project -->
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll">
+                    <div class="bg-gradient-to-br from-green-400 to-green-600 p-8 text-center text-white">
+                        <i class="fas fa-shopping-cart text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">Prana E-commerce Platform</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Complete e-commerce solution with payment processing and order management</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Python</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Flask</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">JavaScript</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Bootstrap</span>
+                        </div>
+                        <p class="text-gray-700 mb-4"><strong>Features:</strong> 7 product categories, mobile-responsive, payment integration</p>
+                        <a href="https://github.com/kikstaog/Prana-ecommerce-webiste" target="_blank" class="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Business Intelligence Project -->
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll">
+                    <div class="bg-gradient-to-br from-blue-400 to-blue-600 p-8 text-center text-white">
+                        <i class="fas fa-chart-line text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">Business Intelligence System</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Machine learning platform for inventory and sales analysis</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Python</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Pandas</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Scikit-learn</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Streamlit</span>
+                        </div>
+                        <p class="text-gray-700 mb-4"><strong>Impact:</strong> 15-20% cost savings identified, improved inventory planning and sales forecasting</p>
+                        <a href="https://github.com/kikstaog/prana-business-intelligence" target="_blank" class="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CS50 Projects -->
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll">
+                    <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 p-8 text-center text-gray-800">
+                        <i class="fas fa-code text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">CS50 Programming Projects</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Harvard CS50 assignments demonstrating computer science fundamentals</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">C</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">Python</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">SQL</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">JavaScript</span>
+                        </div>
+                        <p class="text-gray-700 mb-4"><strong>Projects:</strong> Image filtering, election systems, memory management</p>
+                        <a href="#" class="inline-flex items-center px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 gradient-text">Technical Skills</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-code text-primary-500 mr-3"></i>
+                        Programming Languages
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Python (Advanced)</span>
+                                <span class="text-primary-600 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">C (Intermediate)</span>
+                                <span class="text-primary-600 font-semibold">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">JavaScript (Intermediate)</span>
+                                <span class="text-primary-600 font-semibold">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">HTML/CSS (Intermediate)</span>
+                                <span class="text-primary-600 font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks & Tools -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-tools text-primary-500 mr-3"></i>
+                        Frameworks & Tools
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Flask</span>
+                                <span class="text-primary-600 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Pandas & NumPy</span>
+                                <span class="text-primary-600 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Scikit-learn</span>
+                                <span class="text-primary-600 font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Bootstrap</span>
+                                <span class="text-primary-600 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Areas of Expertise -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-chart-bar text-primary-500 mr-3"></i>
+                        Areas of Expertise
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Full-Stack Development</span>
+                                <span class="text-primary-600 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Data Science</span>
+                                <span class="text-primary-600 font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">API Integration</span>
+                                <span class="text-primary-600 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Business Operations</span>
+                                <span class="text-primary-600 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-1000" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Contact Info -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="contact-item text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll">
+                        <i class="fas fa-envelope text-4xl text-primary-500 mb-4"></i>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Email</h4>
+                        <p class="text-gray-600">ef.santiago@gmail.com</p>
+                    </div>
+                    <div class="contact-item text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll">
+                        <i class="fab fa-linkedin text-4xl text-primary-500 mb-4"></i>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">LinkedIn</h4>
+                        <p class="text-gray-600">linkedin.com/in/yourprofile</p>
+                    </div>
+                    <div class="contact-item text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll">
+                        <i class="fab fa-github text-4xl text-primary-500 mb-4"></i>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">GitHub</h4>
+                        <p class="text-gray-600">github.com/kikstaog</p>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="text-center space-y-4 md:space-y-0 md:space-x-4 animate-on-scroll">
+                    <a href="mailto:ef.santiago@gmail.com" class="btn-primary inline-flex items-center px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Send Email
+                    </a>
+                    <a href="CV_Enrique_De_Santiago.html" class="btn-secondary inline-flex items-center px-8 py-4 text-lg font-semibold rounded-full border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300 transform hover:scale-105" download id="cvDownloadLink">
+                        <i class="fas fa-download mr-3"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg mb-2">&copy; 2024 Enrique De Santiago. All rights reserved.</p>
+            <p class="text-gray-400">Built with ❤️ using Tailwind CSS and modern web technologies</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script-new.js"></script>
+</body>
+</html> 
