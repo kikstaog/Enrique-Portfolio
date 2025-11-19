@@ -502,23 +502,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
-        // Optimized PDF generation for LinkedIn compatibility
+        // Optimized PDF generation for LinkedIn compatibility (under 5MB)
         window.addEventListener('load', function() {
             // Small delay to ensure page is fully rendered
             setTimeout(function() {
+                // Hide profile picture to reduce file size
+                const profilePic = document.querySelector('.profile-picture');
+                const originalDisplay = profilePic ? profilePic.style.display : '';
+                if (profilePic) {
+                    profilePic.style.display = 'none';
+                }
+                
                 const element = document.body;
                 const opt = {
                     margin: [0.5, 0.5, 0.5, 0.5],
                     filename: 'Enrique_De_Santiago_CV.pdf',
                     image: { 
                         type: 'jpeg', 
-                        quality: 0.85  // Reduced quality for smaller file size
+                        quality: 0.6  // Aggressively reduced for file size under 5MB
                     },
                     html2canvas: { 
-                        scale: 1.5,  // Reduced scale for smaller file size
+                        scale: 1.0,  // Minimum scale for smallest file size
                         useCORS: true,
                         logging: false,
-                        letterRendering: true
+                        letterRendering: true,
+                        allowTaint: false,
+                        backgroundColor: '#ffffff',
+                        removeContainer: true
                     },
                     jsPDF: { 
                         unit: 'in', 
@@ -535,12 +545,19 @@
                 };
                 
                 html2pdf().set(opt).from(element).save().then(function() {
-                    // PDF generated successfully
+                    // Restore profile picture display
+                    if (profilePic) {
+                        profilePic.style.display = originalDisplay;
+                    }
                     console.log('PDF generated successfully');
                 }).catch(function(error) {
+                    // Restore profile picture display on error
+                    if (profilePic) {
+                        profilePic.style.display = originalDisplay;
+                    }
                     console.error('PDF generation error:', error);
                 });
-            }, 1000);  // Increased delay for better rendering
+            }, 1000);
         });
     </script>
 </body>
