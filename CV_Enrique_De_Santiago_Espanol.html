@@ -24,9 +24,16 @@
         }
         
         .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 35px;
             padding-bottom: 25px;
             border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .header-content {
+            flex: 1;
         }
         
         .header h1 {
@@ -47,16 +54,23 @@
         
         .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: 6px;
             font-size: 10pt;
             color: #555;
         }
         
         .contact-info span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            display: block;
+        }
+        
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e5e5e5;
+            flex-shrink: 0;
         }
         
         .section {
@@ -83,26 +97,8 @@
         .job {
             margin-bottom: 22px;
             page-break-inside: avoid;
-        }
-        
-        .job-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 6px;
-        }
-        
-        .job-title {
-            font-weight: 600;
-            color: #1a1a1a;
-            font-size: 11pt;
-        }
-        
-        .job-company {
-            font-weight: 500;
-            color: #555;
-            font-size: 10.5pt;
-            margin-top: 2px;
+            gap: 20px;
         }
         
         .job-date {
@@ -110,10 +106,29 @@
             color: #888;
             font-weight: 400;
             white-space: nowrap;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+        
+        .job-content {
+            flex: 1;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 11pt;
+            margin-bottom: 4px;
+        }
+        
+        .job-company {
+            font-weight: 500;
+            color: #555;
+            font-size: 10.5pt;
+            margin-bottom: 8px;
         }
         
         .job-description {
-            margin-top: 8px;
             color: #444;
             font-size: 10pt;
             line-height: 1.65;
@@ -121,8 +136,8 @@
         
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin-top: 12px;
         }
         
@@ -134,34 +149,32 @@
             font-size: 10pt;
             font-weight: 600;
             color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.8px;
         }
         
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .skill-item {
+            margin-bottom: 10px;
         }
         
-        .skill-category li {
+        .skill-item strong {
             font-size: 10pt;
-            color: #555;
-            margin-bottom: 4px;
-            padding-left: 0;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .skill-item span {
+            font-size: 9.5pt;
+            color: #666;
+            line-height: 1.5;
         }
         
         .project {
             margin-bottom: 18px;
             page-break-inside: avoid;
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 6px;
         }
         
         .project h4 {
@@ -187,32 +200,33 @@
         .education-item {
             margin-bottom: 14px;
             page-break-inside: avoid;
-        }
-        
-        .education-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 4px;
-        }
-        
-        .education-title {
-            font-weight: 600;
-            color: #1a1a1a;
-            font-size: 10.5pt;
-        }
-        
-        .education-school {
-            font-weight: 500;
-            color: #555;
-            font-size: 10pt;
-            margin-top: 2px;
+            gap: 20px;
         }
         
         .education-date {
             font-size: 10pt;
             color: #888;
             white-space: nowrap;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+        
+        .education-content {
+            flex: 1;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 10.5pt;
+            margin-bottom: 4px;
+        }
+        
+        .education-school {
+            font-weight: 500;
+            color: #555;
+            font-size: 10pt;
         }
         
         .achievements ul {
@@ -264,13 +278,16 @@
 </head>
 <body>
     <div class="header">
-        <h1>ENRIQUE DE SANTIAGO</h1>
-        <h2>Desarrollador de Software y Líder Empresarial</h2>
-        <div class="contact-info">
-            <span>ef.santiago@gmail.com</span>
-            <span>github.com/kikstaog</span>
-            <span>linkedin.com/in/enrique-de-santiago</span>
+        <div class="header-content">
+            <h1>ENRIQUE DE SANTIAGO</h1>
+            <h2>Desarrollador de Software y Líder Empresarial</h2>
+            <div class="contact-info">
+                <span>ef.santiago@gmail.com</span>
+                <span>github.com/kikstaog</span>
+                <span>linkedin.com/in/enrique-de-santiago</span>
+            </div>
         </div>
+        <img src="images/kiks.jpg" alt="Enrique De Santiago" class="profile-picture" onerror="this.style.display='none'">
     </div>
 
     <div class="section">
@@ -281,80 +298,90 @@
     </div>
 
     <div class="section">
-        <h3 class="section-title">Habilidades Técnicas</h3>
+        <h3 class="section-title">Habilidades</h3>
         <div class="skills-container">
             <div class="skill-category">
-                <h4>Lenguajes de Programación</h4>
-                <ul>
-                    <li>Python (Avanzado)</li>
-                    <li>C (Intermedio)</li>
-                    <li>JavaScript (Intermedio)</li>
-                    <li>HTML/CSS (Intermedio)</li>
-                    <li>SQL (Básico)</li>
-                </ul>
+                <h4>Profesional</h4>
+                <div class="skill-item">
+                    <strong>Operaciones Empresariales</strong>
+                    <span>Gestión de operaciones multi-locales, personal de 25+, generando $2.5M en ventas anuales</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Liderazgo y Gestión</strong>
+                    <span>Liderando equipos, desarrollo de conceptos, iniciativas de marca y gestión de personal</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Desarrollo de Productos</strong>
+                    <span>Creando nuevos elementos del menú, ofertas estacionales y conceptos de restaurantes</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Inmobiliaria</strong>
+                    <span>Agente inmobiliario licenciado especializado en propiedades residenciales y comerciales</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Comunicación</strong>
+                    <span>Bilingüe (Inglés/Español) con experiencia empresarial internacional</span>
+                </div>
             </div>
             <div class="skill-category">
-                <h4>Frameworks y Librerías</h4>
-                <ul>
-                    <li>Flask</li>
-                    <li>Bootstrap 5</li>
-                    <li>Pandas & NumPy</li>
-                    <li>Scikit-learn</li>
-                    <li>Streamlit</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Áreas de Especialización</h4>
-                <ul>
-                    <li>Desarrollo Full-Stack</li>
-                    <li>Ciencia de Datos</li>
-                    <li>Aprendizaje Automático</li>
-                    <li>Integración de APIs</li>
-                    <li>Inteligencia Empresarial</li>
-                </ul>
+                <h4>Técnico</h4>
+                <div class="skill-item">
+                    <strong>Python</strong>
+                    <span>Competencia avanzada en Flask, Pandas, NumPy, Scikit-learn, Streamlit</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Desarrollo Full-Stack</strong>
+                    <span>JavaScript, HTML/CSS, Bootstrap, construcción de aplicaciones web y APIs</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Ciencia de Datos y ML</strong>
+                    <span>Algoritmos de aprendizaje automático, análisis de datos, sistemas de inteligencia empresarial</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Integración de APIs</strong>
+                    <span>WhatsApp Business API, Twilio, procesamiento de pagos, tecnología OCR</span>
+                </div>
+                <div class="skill-item">
+                    <strong>Bases de Datos y Sistemas</strong>
+                    <span>SQL, diseño de bases de datos, arquitectura de sistemas, soluciones de automatización</span>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h3 class="section-title">Experiencia Profesional</h3>
+        <h3 class="section-title">Experiencia</h3>
         
         <div class="job">
-            <div class="job-header">
-                <div>
-                    <div class="job-title">Gerente de Operaciones y Desarrollo de Productos</div>
-                    <div class="job-company">Grupo de Restaurantes: Prana Juice Bar/Pizza CCS/Arepa CCS/Elvira</div>
+            <div class="job-date">2011 - Presente</div>
+            <div class="job-content">
+                <div class="job-title">Gerente de Operaciones y Desarrollo de Productos</div>
+                <div class="job-company">Grupo de Restaurantes: Prana Juice Bar/Pizza CCS/Arepa CCS/Elvira</div>
+                <div class="job-description">
+                    Liderando operaciones y desarrollo de productos en múltiples conceptos de restaurantes. Gestiono operaciones diarias para 4 conceptos de restaurantes generando $2.5 millones en ventas anuales. Superviso personal de más de 25 empleados en múltiples ubicaciones. Implementé procedimientos operativos mejorando la eficiencia en un 40%. Desarrollé nuevos elementos del menú y ofertas estacionales para todos los conceptos de restaurantes. Expandí exitosamente Prana Juice Bar a 2 locales en Caracas en un grupo de 4 conceptos exitosos con un crecimiento de ingresos del 200%.
                 </div>
-                <div class="job-date">2011 - Presente</div>
-            </div>
-            <div class="job-description">
-                Liderando operaciones y desarrollo de productos en múltiples conceptos de restaurantes. Gestiono operaciones diarias para 4 conceptos de restaurantes generando $2.5 millones en ventas anuales. Superviso personal de más de 25 empleados en múltiples ubicaciones. Implementé procedimientos operativos mejorando la eficiencia en un 40%. Desarrollé nuevos elementos del menú y ofertas estacionales para todos los conceptos de restaurantes. Expandí exitosamente Prana Juice Bar a 2 locales en Caracas en un grupo de 4 conceptos exitosos con un crecimiento de ingresos del 200%.
             </div>
         </div>
 
         <div class="job">
-            <div class="job-header">
-                <div>
-                    <div class="job-title">Agente Inmobiliario</div>
-                    <div class="job-company">Wallis & Co.</div>
+            <div class="job-date">2024 - Presente</div>
+            <div class="job-content">
+                <div class="job-title">Agente Inmobiliario</div>
+                <div class="job-company">Wallis & Co.</div>
+                <div class="job-description">
+                    Profesional inmobiliario licenciado especializado en propiedades residenciales y comerciales. Represento compradores y vendedores, realizo análisis de mercado, desarrollo estrategias de marketing y negocio contratos. Construyo y mantengo relaciones con clientes a través de un servicio excepcional.
                 </div>
-                <div class="job-date">2024 - Presente</div>
-            </div>
-            <div class="job-description">
-                Profesional inmobiliario licenciado especializado en propiedades residenciales y comerciales. Represento compradores y vendedores, realizo análisis de mercado, desarrollo estrategias de marketing y negocio contratos. Construyo y mantengo relaciones con clientes a través de un servicio excepcional.
             </div>
         </div>
 
         <div class="job">
-            <div class="job-header">
-                <div>
-                    <div class="job-title">Desarrollador Full-Stack y Analista de Datos</div>
-                    <div class="job-company">Freelance</div>
+            <div class="job-date">2024 - Presente</div>
+            <div class="job-content">
+                <div class="job-title">Desarrollador Full-Stack y Analista de Datos</div>
+                <div class="job-company">Freelance</div>
+                <div class="job-description">
+                    Desarrollé tres aplicaciones listas para producción: Bot de WhatsApp con servicio al cliente automatizado, plataforma de e-commerce con procesamiento de pagos, y sistema de inteligencia empresarial con algoritmos de aprendizaje automático. Apliqué tecnología para resolver problemas empresariales reales con impacto medible.
                 </div>
-                <div class="job-date">2024 - Presente</div>
-            </div>
-            <div class="job-description">
-                Desarrollé tres aplicaciones listas para producción: Bot de WhatsApp con servicio al cliente automatizado, plataforma de e-commerce con procesamiento de pagos, y sistema de inteligencia empresarial con algoritmos de aprendizaje automático. Apliqué tecnología para resolver problemas empresariales reales con impacto medible.
             </div>
         </div>
     </div>
@@ -363,52 +390,42 @@
         <h3 class="section-title">Educación</h3>
         
         <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <div class="education-title">Harvard CS50 - Introducción a las Ciencias de la Computación</div>
-                    <div class="education-school">Universidad de Harvard</div>
-                </div>
-                <div class="education-date">Actualmente Inscrito - Semana 6</div>
+            <div class="education-date">Actualmente Inscrito</div>
+            <div class="education-content">
+                <div class="education-title">Harvard CS50 - Introducción a las Ciencias de la Computación</div>
+                <div class="education-school">Universidad de Harvard</div>
             </div>
         </div>
 
         <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <div class="education-title">Licenciatura en Artes y Ciencias</div>
-                    <div class="education-school">Marymount College</div>
-                </div>
-                <div class="education-date">2009-2010</div>
+            <div class="education-date">2009-2010</div>
+            <div class="education-content">
+                <div class="education-title">Licenciatura en Artes y Ciencias</div>
+                <div class="education-school">Marymount College</div>
             </div>
         </div>
 
         <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <div class="education-title">Fordham University</div>
-                    <div class="education-school">Fordham University</div>
-                </div>
-                <div class="education-date">2003-2005</div>
+            <div class="education-date">2003-2005</div>
+            <div class="education-content">
+                <div class="education-title">Fordham University</div>
+                <div class="education-school">Fordham University</div>
             </div>
         </div>
 
         <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <div class="education-title">Diploma de Bachillerato</div>
-                    <div class="education-school">Colegio Jefferson</div>
-                </div>
-                <div class="education-date">2001</div>
+            <div class="education-date">2001</div>
+            <div class="education-content">
+                <div class="education-title">Diploma de Bachillerato</div>
+                <div class="education-school">Colegio Jefferson</div>
             </div>
         </div>
 
         <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <div class="education-title">Plantlab Certificaciones Culinarias</div>
-                    <div class="education-school">Plantlab</div>
-                </div>
-                <div class="education-date">2016-2017</div>
+            <div class="education-date">2016-2017</div>
+            <div class="education-content">
+                <div class="education-title">Plantlab Certificaciones Culinarias</div>
+                <div class="education-school">Plantlab</div>
             </div>
         </div>
     </div>
@@ -417,52 +434,32 @@
         <h3 class="section-title">Portafolio de Proyectos</h3>
         
         <div class="project">
-            <div class="project-header">
-                <div>
-                    <h4>Bot de WhatsApp Prana</h4>
-                    <div class="project-tech">Python, WhatsApp Business API, Twilio, OCR, Flask</div>
-                </div>
-            </div>
+            <h4>Bot de WhatsApp Prana</h4>
+            <div class="project-tech">Python, WhatsApp Business API, Twilio, OCR, Flask</div>
             <p>Sistema de servicio al cliente automatizado con soporte multiidioma, seguimiento de inventario en tiempo real y procesamiento de pedidos. Impacto: 70% de reducción en procesamiento manual, mejora en la satisfacción del cliente.</p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <div>
-                    <h4>Sitio Web E-commerce Prana</h4>
-                    <div class="project-tech">Python, Flask, JavaScript, Bootstrap, Leaflet.js</div>
-                </div>
-            </div>
+            <h4>Sitio Web E-commerce Prana</h4>
+            <div class="project-tech">Python, Flask, JavaScript, Bootstrap, Leaflet.js</div>
             <p>Plataforma completa de e-commerce con integración de pagos, diseño responsive móvil y mapas interactivos. Características: 7 categorías de productos, más de 30 elementos del menú.</p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <div>
-                    <h4>Sistema de Inteligencia Empresarial</h4>
-                    <div class="project-tech">Python, Pandas, Scikit-learn, Streamlit, Matplotlib</div>
-                </div>
-            </div>
+            <h4>Sistema de Inteligencia Empresarial</h4>
+            <div class="project-tech">Python, Pandas, Scikit-learn, Streamlit, Matplotlib</div>
             <p>Plataforma de aprendizaje automático para análisis de inventario y ventas con dashboards interactivos y reportes automatizados. Impacto: 15-20% de ahorro en costos identificado, mejor planificación de inventario.</p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <div>
-                    <h4>Gestor de Recetas Pollos Bandidos</h4>
-                    <div class="project-tech">Python, JSON, Streamlit, Análisis de Datos</div>
-                </div>
-            </div>
+            <h4>Gestor de Recetas Pollos Bandidos</h4>
+            <div class="project-tech">Python, JSON, Streamlit, Análisis de Datos</div>
             <p>Sistema completo de gestión de recetas con cálculo automatizado de costos, seguimiento de ingredientes y estimación de rendimiento. Características: búsqueda inteligente de ingredientes, exportación de recetas y análisis integral de costos para operaciones de restaurantes.</p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <div>
-                    <h4>Proyectos de Programación CS50</h4>
-                    <div class="project-tech">C, Python, SQL, JavaScript</div>
-                </div>
-            </div>
+            <h4>Proyectos de Programación CS50</h4>
+            <div class="project-tech">C, Python, SQL, JavaScript</div>
             <p>Tareas de Harvard CS50 que demuestran fundamentos de ciencias de la computación. Proyectos: Filtrado de imágenes, sistemas electorales, gestión de memoria.</p>
         </div>
     </div>
