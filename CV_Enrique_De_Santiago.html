@@ -4,163 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrique De Santiago - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            color: #2c2c2c;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 20px;
-            background: white;
+            padding: 40px 50px;
+            background: #ffffff;
+            font-size: 11pt;
         }
+        
         .header {
-            text-align: center;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e5e5e5;
         }
+        
         .header h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
+            font-size: 32pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
+        
         .header h2 {
+            font-size: 13pt;
+            font-weight: 400;
             color: #666;
-            margin-bottom: 15px;
-            font-weight: normal;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
         }
+        
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 20px;
+            font-size: 10pt;
+            color: #555;
         }
+        
         .contact-info span {
-            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
+        
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
-        .section h3 {
-            color: #667eea;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+        
+        .section-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #1a1a1a;
         }
+        
+        .section-content {
+            font-size: 10.5pt;
+            color: #444;
+            line-height: 1.7;
+        }
+        
         .job {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+            page-break-inside: avoid;
         }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+        
         .job-title {
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 11pt;
         }
+        
         .job-company {
-            color: #667eea;
-            font-weight: bold;
-        }
-        .job-date {
-            color: #666;
-            font-style: italic;
-        }
-        .job-description {
-            margin-top: 10px;
+            font-weight: 500;
             color: #555;
+            font-size: 10.5pt;
+            margin-top: 2px;
         }
-        .skills-grid {
+        
+        .job-date {
+            font-size: 10pt;
+            color: #888;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+        
+        .job-description {
+            margin-top: 8px;
+            color: #444;
+            font-size: 10pt;
+            line-height: 1.65;
+        }
+        
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 12px;
         }
+        
         .skill-category {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 0;
         }
+        
         .skill-category h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-        .skill-category ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .skill-category li {
-            margin-bottom: 5px;
-        }
-        .project {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        .project h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        .project-tech {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .education-item {
-            margin-bottom: 15px;
-        }
-        .education-title {
-            font-weight: bold;
-            color: #333;
-        }
-        .education-school {
-            color: #667eea;
-        }
-        .education-date {
-            color: #666;
-            font-style: italic;
-        }
-        .achievements ul {
-            padding-left: 20px;
-        }
-        .achievements li {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1a1a1a;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skill-category li {
+            font-size: 10pt;
+            color: #555;
+            margin-bottom: 4px;
+            padding-left: 0;
+        }
+        
+        .project {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+        
+        .project h4 {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 10.5pt;
+            margin-bottom: 4px;
+        }
+        
+        .project-tech {
+            font-size: 9.5pt;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+        
+        .project p {
+            font-size: 10pt;
+            color: #444;
+            line-height: 1.65;
+        }
+        
+        .education-item {
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 10.5pt;
+        }
+        
+        .education-school {
+            font-weight: 500;
+            color: #555;
+            font-size: 10pt;
+            margin-top: 2px;
+        }
+        
+        .education-date {
+            font-size: 10pt;
+            color: #888;
+            white-space: nowrap;
+        }
+        
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .achievements li {
+            font-size: 10pt;
+            color: #444;
+            margin-bottom: 8px;
+            padding-left: 0;
+            line-height: 1.65;
+        }
+        
+        .career-objectives ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .career-objectives li {
+            font-size: 10pt;
+            color: #444;
+            margin-bottom: 6px;
+            padding-left: 0;
+            line-height: 1.65;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 9.5pt;
+            color: #888;
+            font-style: italic;
+        }
+        
         @media print {
             body {
-                padding: 0;
-                margin: 20px;
+                padding: 30px 40px;
             }
-            .header {
-                border-bottom: 2px solid #667eea;
+            
+            .job, .project, .education-item {
+                page-break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Enrique De Santiago</h1>
+        <h1>ENRIQUE DE SANTIAGO</h1>
         <h2>Software Developer & Business Leader</h2>
         <div class="contact-info">
-            <span>📧 ef.santiago@gmail.com</span>
-            <span>🌐 github.com/kikstaog</span>
-            <span>💼 linkedin.com/in/enrique-de-santiago</span>
+            <span>ef.santiago@gmail.com</span>
+            <span>github.com/kikstaog</span>
+            <span>linkedin.com/in/enrique-de-santiago</span>
         </div>
     </div>
 
     <div class="section">
-        <h3>PROFESSIONAL SUMMARY</h3>
-        <p>
-            Results-driven operations manager, licensed realtor, and software developer with 13+ years of experience in restaurant operations, product development, and real estate. Successfully expanded a single juice bar into a 4-concept restaurant group generating $2.5 million in annual sales. Currently working as a Realtor Agent at Wallis & Co. while developing technology solutions for business automation. Recently developed three production-ready applications demonstrating proficiency in Python, JavaScript, machine learning, and API integration. Currently enrolled in Harvard CS50 (Week 6) to strengthen computer science fundamentals. Bilingual in English and Spanish with proven leadership, business acumen, and problem-solving skills across multiple industries.
-        </p>
+        <h3 class="section-title">Professional Summary</h3>
+        <div class="section-content">
+            <p>Results-driven operations manager, licensed realtor, and software developer with 13+ years of experience in restaurant operations, product development, and real estate. Successfully expanded a single juice bar into a 4-concept restaurant group generating $2.5 million in annual sales. Currently working as a Realtor Agent at Wallis & Co. while developing technology solutions for business automation. Recently developed three production-ready applications demonstrating proficiency in Python, JavaScript, machine learning, and API integration. Currently enrolled in Harvard CS50 (Week 6) to strengthen computer science fundamentals. Bilingual in English and Spanish with proven leadership, business acumen, and problem-solving skills across multiple industries.</p>
+        </div>
     </div>
 
     <div class="section">
-        <h3>TECHNICAL SKILLS</h3>
-        <div class="skills-grid">
+        <h3 class="section-title">Technical Skills</h3>
+        <div class="skills-container">
             <div class="skill-category">
                 <h4>Programming Languages</h4>
                 <ul>
@@ -195,30 +317,42 @@
     </div>
 
     <div class="section">
-        <h3>PROFESSIONAL EXPERIENCE</h3>
+        <h3 class="section-title">Professional Experience</h3>
         
         <div class="job">
-            <div class="job-title">Operations Manager & Product Development</div>
-            <div class="job-company">Prana Juice Bar/Pizza CCS/Arepa CCS/Elvira Restaurant Group</div>
-            <div class="job-date">2011 - Present</div>
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Operations Manager & Product Development</div>
+                    <div class="job-company">Prana Juice Bar/Pizza CCS/Arepa CCS/Elvira Restaurant Group</div>
+                </div>
+                <div class="job-date">2011 - Present</div>
+            </div>
             <div class="job-description">
                 Leading operations and product development across multiple restaurant concepts. Manage daily operations for 4 restaurant concepts generating $2.5 million in annual sales. Oversee staff of 25+ employees across multiple locations. Implemented operational procedures improving efficiency by 40%. Developed new menu items and seasonal offerings for all restaurant concepts. Expanded from single juice bar to 4 successful restaurant concepts with 200% revenue growth.
             </div>
         </div>
 
         <div class="job">
-            <div class="job-title">Realtor Agent</div>
-            <div class="job-company">Wallis & Co.</div>
-            <div class="job-date">2024 - Present</div>
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Realtor Agent</div>
+                    <div class="job-company">Wallis & Co.</div>
+                </div>
+                <div class="job-date">2024 - Present</div>
+            </div>
             <div class="job-description">
                 Licensed real estate professional specializing in residential and commercial properties. Represent buyers and sellers, conduct market analysis, develop marketing strategies, and negotiate contracts. Build and maintain client relationships through exceptional service.
             </div>
         </div>
 
         <div class="job">
-            <div class="job-title">Full-Stack Developer & Data Analyst</div>
-            <div class="job-company">Freelance</div>
-            <div class="job-date">2024 - Present</div>
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Full-Stack Developer & Data Analyst</div>
+                    <div class="job-company">Freelance</div>
+                </div>
+                <div class="job-date">2024 - Present</div>
+            </div>
             <div class="job-description">
                 Developed three production-ready applications: WhatsApp Bot with automated customer service, E-commerce platform with payment processing, and Business Intelligence system with machine learning algorithms. Applied technology to solve real business problems with measurable impact.
             </div>
@@ -226,75 +360,115 @@
     </div>
 
     <div class="section">
-        <h3>EDUCATION</h3>
+        <h3 class="section-title">Education</h3>
         
         <div class="education-item">
-            <div class="education-title">Harvard CS50 - Introduction to Computer Science</div>
-            <div class="education-school">Harvard University</div>
-            <div class="education-date">Currently Enrolled - Week 6</div>
+            <div class="education-header">
+                <div>
+                    <div class="education-title">Harvard CS50 - Introduction to Computer Science</div>
+                    <div class="education-school">Harvard University</div>
+                </div>
+                <div class="education-date">Currently Enrolled - Week 6</div>
+            </div>
         </div>
 
         <div class="education-item">
-            <div class="education-title">Bachelor of Arts and Science</div>
-            <div class="education-school">Marymount College</div>
-            <div class="education-date">2009-2010</div>
+            <div class="education-header">
+                <div>
+                    <div class="education-title">Bachelor of Arts and Science</div>
+                    <div class="education-school">Marymount College</div>
+                </div>
+                <div class="education-date">2009-2010</div>
+            </div>
         </div>
 
         <div class="education-item">
-            <div class="education-title">Fordham University</div>
-            <div class="education-school">Fordham University</div>
-            <div class="education-date">2003-2005</div>
+            <div class="education-header">
+                <div>
+                    <div class="education-title">Fordham University</div>
+                    <div class="education-school">Fordham University</div>
+                </div>
+                <div class="education-date">2003-2005</div>
+            </div>
         </div>
 
         <div class="education-item">
-            <div class="education-title">High School Diploma</div>
-            <div class="education-school">Colegio Jefferson</div>
-            <div class="education-date">2001</div>
+            <div class="education-header">
+                <div>
+                    <div class="education-title">High School Diploma</div>
+                    <div class="education-school">Colegio Jefferson</div>
+                </div>
+                <div class="education-date">2001</div>
+            </div>
         </div>
 
         <div class="education-item">
-            <div class="education-title">Plantlab Culinary Certifications</div>
-            <div class="education-school">Plantlab</div>
-            <div class="education-date">Raw Cooking 101, Advanced Raw Cooking, Advanced Plant-Based Cooking (2016-2017)</div>
+            <div class="education-header">
+                <div>
+                    <div class="education-title">Plantlab Culinary Certifications</div>
+                    <div class="education-school">Plantlab</div>
+                </div>
+                <div class="education-date">2016-2017</div>
+            </div>
         </div>
     </div>
 
     <div class="section">
-        <h3>PROJECT PORTFOLIO</h3>
+        <h3 class="section-title">Project Portfolio</h3>
         
         <div class="project">
-            <h4>Prana WhatsApp Bot</h4>
-            <div class="project-tech">Technologies: Python, WhatsApp Business API, Twilio, OCR, Flask</div>
+            <div class="project-header">
+                <div>
+                    <h4>Prana WhatsApp Bot</h4>
+                    <div class="project-tech">Python, WhatsApp Business API, Twilio, OCR, Flask</div>
+                </div>
+            </div>
             <p>Automated customer service system with multi-language support, real-time inventory tracking, and order processing. Impact: 70% reduction in manual processing, improved customer satisfaction.</p>
         </div>
 
         <div class="project">
-            <h4>Prana E-commerce Website</h4>
-            <div class="project-tech">Technologies: Python, Flask, JavaScript, Bootstrap, Leaflet.js</div>
+            <div class="project-header">
+                <div>
+                    <h4>Prana E-commerce Website</h4>
+                    <div class="project-tech">Python, Flask, JavaScript, Bootstrap, Leaflet.js</div>
+                </div>
+            </div>
             <p>Complete e-commerce platform with payment integration, mobile-responsive design, and interactive maps. Features: 7 product categories, 30+ menu items.</p>
         </div>
 
         <div class="project">
-            <h4>Business Intelligence System</h4>
-            <div class="project-tech">Technologies: Python, Pandas, Scikit-learn, Streamlit, Matplotlib</div>
+            <div class="project-header">
+                <div>
+                    <h4>Business Intelligence System</h4>
+                    <div class="project-tech">Python, Pandas, Scikit-learn, Streamlit, Matplotlib</div>
+                </div>
+            </div>
             <p>Machine learning platform for inventory and sales analysis with interactive dashboards and automated reporting. Impact: 15-20% cost savings identified, improved inventory planning.</p>
         </div>
 
         <div class="project">
-            <h4>Pollos Bandidos Recipe Manager</h4>
-            <div class="project-tech">Technologies: Python, JSON, Streamlit, Data Analysis</div>
+            <div class="project-header">
+                <div>
+                    <h4>Pollos Bandidos Recipe Manager</h4>
+                    <div class="project-tech">Python, JSON, Streamlit, Data Analysis</div>
+                </div>
+            </div>
             <p>Complete recipe management system with automated cost calculation, ingredient tracking, and yield estimation. Features intelligent ingredient search, recipe export, and comprehensive cost analysis for restaurant operations.</p>
         </div>
 
         <div class="project">
-            <h4>CS50 Programming Projects</h4>
-            <div class="project-tech">Technologies: C, Python, SQL, JavaScript</div>
+            <div class="project-header">
+                <div>
+                    <h4>CS50 Programming Projects</h4>
+                    <div class="project-tech">C, Python, SQL, JavaScript</div>
+                </div>
+            </div>
             <p>Harvard CS50 assignments demonstrating computer science fundamentals. Projects: Image filtering, election systems, memory management.</p>
         </div>
     </div>
 
     <div class="section">
-        <h3>KEY ACHIEVEMENTS</h3>
+        <h3 class="section-title">Key Achievements</h3>
         <div class="achievements">
             <ul>
                 <li><strong>Business Leadership:</strong> Successfully expanded single juice bar into 4-concept restaurant group with 200% revenue growth</li>
@@ -310,18 +484,19 @@
     </div>
 
     <div class="section">
-        <h3>CAREER OBJECTIVES</h3>
-        <p>Seeking opportunities in:</p>
-        <ul>
-            <li><strong>Technology Leadership</strong> - Combining business operations expertise with technical skills</li>
-            <li><strong>Software Development</strong> - Full-stack development, web applications, business automation</li>
-            <li><strong>Data Science</strong> - Business intelligence, analytics, machine learning for operations</li>
-            <li><strong>Operations Technology</strong> - Technology solutions for restaurant and retail operations</li>
-            <li><strong>Product Management</strong> - Technology product development with business domain expertise</li>
-        </ul>
+        <h3 class="section-title">Career Objectives</h3>
+        <div class="career-objectives">
+            <ul>
+                <li><strong>Technology Leadership</strong> - Combining business operations expertise with technical skills</li>
+                <li><strong>Software Development</strong> - Full-stack development, web applications, business automation</li>
+                <li><strong>Data Science</strong> - Business intelligence, analytics, machine learning for operations</li>
+                <li><strong>Operations Technology</strong> - Technology solutions for restaurant and retail operations</li>
+                <li><strong>Product Management</strong> - Technology product development with business domain expertise</li>
+            </ul>
+        </div>
     </div>
 
-    <div style="text-align: center; margin-top: 40px; color: #666; font-style: italic;">
+    <div class="footer">
         Portfolio and project demonstrations available at: github.com/kikstaog
     </div>
 
@@ -350,4 +525,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
