@@ -336,5 +336,30 @@
     <div style="text-align: center; margin-top: 40px; color: #666; font-style: italic;">
         Portafolio y demostraciones de proyectos disponibles en: github.com/kikstaog
     </div>
+
+    <!-- html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        // Auto-download as PDF when page loads
+        window.addEventListener('load', function() {
+            // Small delay to ensure page is fully rendered
+            setTimeout(function() {
+                const element = document.body;
+                const opt = {
+                    margin: 0.5,
+                    filename: 'Enrique_De_Santiago_CV_Espanol.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                
+                html2pdf().set(opt).from(element).save().then(function() {
+                    // After PDF is generated, close the window (optional)
+                    // window.close();
+                });
+            }, 500);
+        });
+    </script>
 </body>
 </html> 
