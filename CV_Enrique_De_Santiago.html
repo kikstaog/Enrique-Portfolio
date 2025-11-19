@@ -502,24 +502,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
-        // Auto-download as PDF when page loads
+        // Optimized PDF generation for LinkedIn compatibility
         window.addEventListener('load', function() {
             // Small delay to ensure page is fully rendered
             setTimeout(function() {
                 const element = document.body;
                 const opt = {
-                    margin: 0.5,
+                    margin: [0.5, 0.5, 0.5, 0.5],
                     filename: 'Enrique_De_Santiago_CV.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true },
-                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    image: { 
+                        type: 'jpeg', 
+                        quality: 0.85  // Reduced quality for smaller file size
+                    },
+                    html2canvas: { 
+                        scale: 1.5,  // Reduced scale for smaller file size
+                        useCORS: true,
+                        logging: false,
+                        letterRendering: true
+                    },
+                    jsPDF: { 
+                        unit: 'in', 
+                        format: 'letter', 
+                        orientation: 'portrait',
+                        compress: true  // Enable PDF compression
+                    },
+                    pagebreak: { 
+                        mode: ['avoid-all', 'css', 'legacy'],
+                        before: '.page-break-before',
+                        after: '.page-break-after',
+                        avoid: '.page-break-avoid'
+                    }
                 };
                 
                 html2pdf().set(opt).from(element).save().then(function() {
-                    // After PDF is generated, close the window (optional)
-                    // window.close();
+                    // PDF generated successfully
+                    console.log('PDF generated successfully');
+                }).catch(function(error) {
+                    console.error('PDF generation error:', error);
                 });
-            }, 500);
+            }, 1000);  // Increased delay for better rendering
         });
     </script>
 </body>
